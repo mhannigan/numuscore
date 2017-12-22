@@ -1,5 +1,5 @@
-#include "addeditadrenalinenode.h"
-#include "ui_addeditadrenalinenode.h"
+#include "addeditznumwnode.h"
+#include "ui_addeditznumwnode.h"
 #include "masternodeconfig.h"
 #include "masternodemanager.h"
 #include "ui_masternodemanager.h"
@@ -15,9 +15,9 @@
 #include <QMessageBox>
 #include <QClipboard>
 
-AddEditAdrenalineNode::AddEditAdrenalineNode(QWidget *parent) :
+AddEditZnumwNode::AddEditZnumwNode(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::AddEditAdrenalineNode)
+    ui(new Ui::AddEditZnumwNode)
 {
     ui->setupUi(this);
 
@@ -34,13 +34,13 @@ AddEditAdrenalineNode::AddEditAdrenalineNode(QWidget *parent) :
     ui->rewardpercentageLineEdit->setPlaceholderText("Input the % for the reward");
 }
 
-AddEditAdrenalineNode::~AddEditAdrenalineNode()
+AddEditZnumwNode::~AddEditZnumwNode()
 {
     delete ui;
 }
 
 
-void AddEditAdrenalineNode::on_okButton_clicked()
+void AddEditZnumwNode::on_okButton_clicked()
 {
     if(ui->aliasLineEdit->text() == "")
     {
@@ -104,24 +104,24 @@ void AddEditAdrenalineNode::on_okButton_clicked()
     }
 }
 
-void AddEditAdrenalineNode::on_cancelButton_clicked()
+void AddEditZnumwNode::on_cancelButton_clicked()
 {
     reject();
 }
 
-void AddEditAdrenalineNode::on_AddEditAddressPasteButton_clicked()
+void AddEditZnumwNode::on_AddEditAddressPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->addressLineEdit->setText(QApplication::clipboard()->text());
 }
 
-void AddEditAdrenalineNode::on_AddEditPrivkeyPasteButton_clicked()
+void AddEditZnumwNode::on_AddEditPrivkeyPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->privkeyLineEdit->setText(QApplication::clipboard()->text());
 }
 
-void AddEditAdrenalineNode::on_AddEditTxhashPasteButton_clicked()
+void AddEditZnumwNode::on_AddEditTxhashPasteButton_clicked()
 {
     // Paste text from clipboard into recipient field
     ui->txhashLineEdit->setText(QApplication::clipboard()->text());

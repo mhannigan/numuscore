@@ -39,7 +39,7 @@ private:
     
 public slots:
     void updateNodeList();
-    void updateAdrenalineNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString rewardAddress, QString rewardPercentage, QString status);
+    void updateZnumwNode(QString alias, QString addr, QString privkey, QString txHash, QString txIndex, QString rewardAddress, QString rewardPercentage, QString status);
     void on_UpdateButton_clicked();
     void copyAddress();
     void copyPubkey();
@@ -51,7 +51,7 @@ private:
     Ui::MasternodeManager *ui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-    CCriticalSection cs_adrenaline;
+    CCriticalSection cs_znumw;
 
 private slots:
     void showContextMenu(const QPoint&);

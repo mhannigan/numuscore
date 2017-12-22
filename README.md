@@ -7,7 +7,7 @@ PoW Algo - Skein
 Total POW: 100,000 Blocks
 
 POW Reward Scheme: 
-81 - 400 
+81 - 400 Block - 1 NMS Per Block (slow start)
 81 - 10 000 Block - 10 NMS per Block
 10 000 - 30 000 Block - 8 NMS per Block
 30 001 - 50 000 Block - 6 NMS per Block
@@ -15,8 +15,7 @@ POW Reward Scheme:
 70 001 - 100 000 Block - 2 NMS per Block
 
 POS Reward Scheme: 
-81 - 400
-10 000 Block - 10 NMS per Block
+401 - 10 000 Block - 10 NMS per Block
 10 001 - 30 000 Block - 12 NMS per Block
 30 001 - 50 000 Block - 13 NMS per Block
 50 001 - 70 000 Block - 14 NMS per Block

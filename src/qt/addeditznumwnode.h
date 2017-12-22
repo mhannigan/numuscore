@@ -1,22 +1,22 @@
-#ifndef ADDEDITADRENALINENODE_H
-#define ADDEDITADRENALINENODE_H
+#ifndef ADDEDITZNUMWNODE_H
+#define ADDEDITZNUMWNODE_H
 
 #include <QDialog>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 
 namespace Ui {
-class AddEditAdrenalineNode;
+class AddEditZnumwNode;
 }
 
 
-class AddEditAdrenalineNode : public QDialog
+class AddEditZnumwNode : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit AddEditAdrenalineNode(QWidget *parent = 0);
-    ~AddEditAdrenalineNode();
+    explicit AddEditZnumwNode(QWidget *parent = 0);
+    ~AddEditZnumwNode();
 
 protected:
 
@@ -30,7 +30,7 @@ private slots:
 signals:
 
 private:
-    Ui::AddEditAdrenalineNode *ui;
+    Ui::AddEditZnumwNode *ui;
 };
 
-#endif // ADDEDITADRENALINENODE_H
+#endif // ADDEDITZNUMWNODE_H

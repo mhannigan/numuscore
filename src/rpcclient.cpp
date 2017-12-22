@@ -24,6 +24,7 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/shared_ptr.hpp>
 #include "json/json_spirit_writer_template.h"
+#include <boost/version.hpp>
 
 using namespace std;
 using namespace boost;
@@ -41,7 +42,13 @@ Object CallRPC(const string& strMethod, const Array& params)
     // Connect to localhost
     bool fUseSSL = GetBoolArg("-rpcssl", false);
     asio::io_service io_service;
+    
+#if BOOST_VERSION < 104700
     ssl::context context(io_service, ssl::context::sslv23);
+#else
+    ssl::context context(boost::asio::ssl::context::sslv23);
+#endif
+    //
     context.set_options(ssl::context::no_sslv2);
     asio::ssl::stream<asio::ip::tcp::socket> sslStream(io_service, context);
     SSLIOStreamDevice<asio::ip::tcp> d(sslStream, fUseSSL);
