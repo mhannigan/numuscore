@@ -1367,22 +1367,34 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees)
         nSubsidy = 1 * COIN; // instamine prevention
     }       
     else if (nHeight > 400 && nHeight <= 10 * 1000) {
-        nSubsidy = 10 * COIN; // initial block reward
+        nSubsidy = 10 * COIN;
     }
     else if (nHeight > 10 * 1000 && nHeight <= 30 * 1000) {
-        nSubsidy = 8 * COIN; // initial block reward
+        nSubsidy = 8 * COIN; 
     }
        else if (nHeight > 30 * 1000 && nHeight <= 50 * 1000) {
-        nSubsidy = 6 * COIN; // initial block reward
+        nSubsidy = 6 * COIN; 
     }
        else if (nHeight > 50 * 1000 && nHeight <= 70 * 1000) {
-        nSubsidy = 4 * COIN; // initial block reward
+        nSubsidy = 4 * COIN; 
     }
     else if (nHeight > 70 * 1000 && nHeight <= 100 * 1000) {
         nSubsidy = 2 * COIN;
     }
     else if (nHeight > 100 * 1000) {
         nSubsidy = 0 * COIN;
+    }
+    else if (nHeight > 400 * 1000) {
+        nSubsidy = 4 * COIN;
+    }
+    else if (nHeight > 500 * 1000) {
+        nSubsidy = 3 * COIN;
+    }
+    else if (nHeight > 600 * 1000) {
+        nSubsidy = 2 * COIN;
+    }
+    else if (nHeight > 700 * 1000) {
+        nSubsidy = 1 * COIN;
     }
     return nSubsidy + nFees;
 
@@ -1411,8 +1423,26 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, i
         else if (pindexBest->nHeight+1 > 100000 && pindexBest->nHeight+1 <= 200000) {
         nSubsidy = 10 * COIN;
     }
+    else if (pindexBest->nHeight+1 > 150000) {
+        nSubsidy = 6 * COIN;
+    }
     else if (pindexBest->nHeight+1 > 200000) {
-        nSubsidy = 8 * COIN;
+        nSubsidy = 5 * COIN;
+    }
+    else if (pindexBest->nHeight+1 > 250000) {
+        nSubsidy = 4 * COIN;
+    }
+    else if (pindexBest->nHeight+1 > 300000) {
+        nSubsidy = 3 * COIN;
+    }
+    else if (pindexBest->nHeight+1 > 350000) {
+        nSubsidy = 2 * COIN;
+    }
+    else if (pindexBest->nHeight+1 > 400000) {
+        nSubsidy = 1 * COIN;
+    }
+    else if (pindexBest->nHeight+1 > 600000) {
+        nSubsidy = 0.5 * COIN;
     }
         
     return nSubsidy + nFees;
@@ -4522,6 +4552,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue)
 {
+    // NumusCrypto Task 2
     int64_t ret = blockValue * 3/4; //75%
 
     return ret;

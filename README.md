@@ -1,30 +1,36 @@
-
 Numus core info
 
 Numus is a PoW/PoS Hybrid cryptocurrency.
 
 PoW Algo - Skein
-Total POW: 100,000 Blocks
 
-POW Reward Scheme: 
-81 - 400 Block - 1 NMS Per Block (slow start)
-81 - 10 000 Block - 10 NMS per Block
-10 000 - 30 000 Block - 8 NMS per Block
-30 001 - 50 000 Block - 6 NMS per Block
-50 001 - 70 000 Block - 4 NMS per Block
-70 001 - 100 000 Block - 2 NMS per Block
+Reward Scheme:
 
-POS Reward Scheme: 
-401 - 10 000 Block - 10 NMS per Block
-10 001 - 30 000 Block - 12 NMS per Block
-30 001 - 50 000 Block - 13 NMS per Block
-50 001 - 70 000 Block - 14 NMS per Block
-70 001 - 100 000 Block - 15 NMS per Block
-100 001 - 200 000 Block - 10 NMS per Block
-After 200 001 - 8 NMS per Block
+// Sunrise Release (Current)
+100 000 - 150 000 | 10 NMS ~30d
+
+// Rhizocarpon Release (Pure POS)
+150 000 - 200 000 | 6 NMS ~30d
+200 000 - 250 000 | 5 NMS ~30d
+250 000 - 300 000 | 4 NMS ~30d
+300 000 - 350 000 | 3 NMS ~30d
+350 000 - 400 000 | 2 NMS ~30d
+
+// Harvest Moon Release (Hybrid POW/POS)
+POW Return (MN Will receive 85% of POW and POS block rewards)
+400 000 - 500 000 | POW 4 NMS / POS 1 NMS ~60d 
+500 000 - 600 000 | POW 3 NMS / POS 1 NMS ~60d 
+600 000 - 700 000 | POW 2 NMS / POS 0.5 NMS ~60d
+
+// Dallia Release (Hybrid POW/POS, Reward plan will be reworked)
+700 000 - 1 300 000 | POW 1 NMS / POS 0.5 NMS ~ 180d
+
+Maximum Amount of Coins: 6 500 000 NMS
 
 Masternode Collaterial - 5 000 NMS.
-Masternodes Rewards - 75% of POS Blocks.
+Masternodes Rewards:
+0 - 400 000 | 75% of POS Blocks
+> 400 000   | 85% of POW/POS Blocks
 
 Block Spacing: 45 Seconds
 Diff Retarget: 5 Blocks
@@ -42,23 +48,3 @@ https://github.com/bitcoin/secp256k1
 Numus includes an Address Index feature, based on the address index API (searchrawtransactions RPC command) implemented in Bitcoin Core but modified implementation to work with the NMS codebase (PoS coins maintain a txindex by default for instance).
 
 Initialize the Address Index By Running with -reindexaddr Command Line Argument.  It may take 10-15 minutes to build the initial index.
-
-Masternode configuration is very similiar to other Masternodes coins.
-
-Masternode system requirement for running demon (Ubuntu):
-
-sudo apt-get install libboost-all-dev software-properties-common libminiupnpc-dev
-sudo add-apt-repository ppa:bitcoin/bitcoin
-sudo apt-get update
-sudo apt-get install libdb4.8++-dev
-
-numus.conf (on masternode)
-port=28121
-masternode=1
-masternodeaddr=8.8.8.8:28121
-masternodeprivkey=putyourkeyhere
-daemon=1
-rpcuser=numus
-rpcpassword=putyourpasswordhere
-rpcallowip=127.0.0.1
-

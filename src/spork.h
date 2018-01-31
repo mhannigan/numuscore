@@ -17,7 +17,7 @@
 
 using namespace std;
 using namespace boost;
-
+// NumusCrypto Task 3
 // Don't ever reuse these IDs for other sporks
 #define SPORK_1_MASTERNODE_PAYMENTS_ENFORCEMENT               10000
 #define SPORK_2_INSTANTX                                      10001

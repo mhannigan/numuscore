@@ -443,7 +443,8 @@ void BitcoinGUI::createToolBars()
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     toolbar->setContextMenuPolicy(Qt::PreventContextMenu);
     toolbar->setObjectName("tabs");
-    toolbar->setStyleSheet("QToolButton { color: #ffffff; font-size: 14px; font-family: Georgia,Times,Times New Roman,serif; font-weight: 400; font-variant: small-caps; padding: 3px; border: none;}"
+    // NumusCrypto task 4
+    toolbar->setStyleSheet("QToolButton { color: #ffffff; }"
                            "QToolButton:hover { background-color: #5282C2; border: none; padding-top: 3px; padding-bottom: 3px; }"
                            "QToolButton:checked { background-color: #1C4478; border: none; padding-top: 3px; padding-bottom: 3px; }"
                            "QToolButton:pressed { background-color: #1C4478; border: none; padding-top: 3px; padding-bottom: 3px; }"
@@ -468,7 +469,7 @@ void BitcoinGUI::createToolBars()
     if (!fLiteMode){
         toolbar->addAction(messageAction);
     }
-
+    // NumusCrypto task 9
     //toolbar->addAction(blockAction);
     //toolbar->addAction(TradingAction);
     netLabel = new QLabel();

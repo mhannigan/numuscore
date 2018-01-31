@@ -16,6 +16,7 @@ void AboutDialog::setModel(ClientModel *model)
     if(model)
     {
         ui->versionLabel->setText(model->formatFullVersion());
+		ui->versionName->setText(model->clientName());
     }
 }
 

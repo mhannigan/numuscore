@@ -3497,7 +3497,7 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
 
         nCredit += nReward;
     }
-
+    // NumusCrypto Task 5
     // Masternode Payments
     int payments = 1;
     // start masternode payments

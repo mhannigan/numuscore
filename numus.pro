@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = numus-qt
-VERSION = 1.0.0.1
+VERSION = 1.0.1.0
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport
 DEFINES += ENABLE_WALLET
@@ -52,6 +52,7 @@ SECP256K1_LIB_PATH = C:/deps/secp256k1/.libs
 SECP256K1_INCLUDE_PATH = C:/deps/secp256k1/include
 #SECP256K1_INCLUDE_PATH = C:/deps/secp256k1
 }
+
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -560,12 +561,12 @@ isEmpty(MINIUPNPC_LIB_PATH) {
 }
 
 isEmpty(OPENSSL_INCLUDE_PATH) {
-    macx:OPENSSL_INCLUDE_PATH = /usr/local/opt/openssl/include
+    macx:OPENSSL_INCLUDE_PATH = /usr/local/Cellar/openssl/1.0.2n/include
     windows:OPENSSL_INCLUDE_PATH=C:/dev/coindeps32/openssl-1.0.1p/include
 }
 
 isEmpty(OPENSSL_LIB_PATH) {
-    macx:OPENSSL_LIB_PATH = /usr/local/opt/openssl/lib
+    macx:OPENSSL_LIB_PATH = /usr/local/Cellar/openssl/1.0.2n/lib
     windows:OPENSSL_LIB_PATH=C:/dev/coindeps32/openssl-1.0.1p/lib
 }
 

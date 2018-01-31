@@ -139,10 +139,12 @@ OverviewPage::OverviewPage(QWidget *parent) :
     ui->labelTransactionsStatus->setText("(" + tr("out of sync") + ")");
 
     fLiteMode = GetBoolArg("-litemode", false);
+    // Numuscrypto Task 12
 
     if(fLiteMode){
         ui->frameDarksend->setVisible(false);
     } else {
+        ui->frameDarksend->setVisible(false);
         if(fMasterNode){
             ui->toggleDarksend->setText("(" + tr("Disabled") + ")");
             ui->darksendAuto->setText("(" + tr("Disabled") + ")");
@@ -161,6 +163,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
         }
     }
 
+    
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
 

@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2014 The Numus developers
+// Copyright (c) 2017-2018 The Numus developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,6 +43,7 @@ static int64_t GetStakeModifierSelectionIntervalSection(int nSection)
     return (nModifierInterval * 63 / (63 + ((63 - nSection) * (MODIFIER_INTERVAL_RATIO - 1))));
 }
 
+// NumusCrypto task 10
 // Get stake modifier selection interval (in seconds)
 static int64_t GetStakeModifierSelectionInterval()
 {

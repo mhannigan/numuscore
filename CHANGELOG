@@ -1,11 +1,19 @@
-v1.0.0.3
+v1.0.1.0 Rhizocarpon Release
+--------
+This is mandatory update until block 150 001 for everyone.
+- DarkSend elements in wallet temporary disabled
+- Reward Plan reworked for next ~1 year
+- UI Changes / Fixes
+- More debugs for Darksend / MN reports
+
+v1.0.0.3 Sunrise Release
 --------
 Renamed some procedures, some gui fixes. MacOs wallet release. 
 
-v1.0.0.2
+v1.0.0.2 Sunrise Release
 --------
 Fixed blockreward typo, updated checkpoints.
 
-v1.0.0.1
+v1.0.0.1 Sunrise Release
 --------
 First stable release

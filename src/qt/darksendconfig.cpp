@@ -23,7 +23,7 @@ DarksendConfig::DarksendConfig(QWidget *parent) :
     connect(ui->buttonHigh, SIGNAL(clicked()), this, SLOT(clickHigh()));
     connect(ui->buttonMax, SIGNAL(clicked()), this, SLOT(clickMax()));
 }
-
+// Morpheus Task 5
 DarksendConfig::~DarksendConfig()
 {
     delete ui;

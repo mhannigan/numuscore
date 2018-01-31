@@ -107,6 +107,7 @@ public:
         nPoolMaxTransactions = 3;
      
         strDarksendPoolDummyAddress = "9frEPbxv2ANZzrViEqTCWaBL8S63FQHz9s";
+        // Morpheus Task 3
         nLastPOWBlock = 100000;
         nPOSStartBlock = 100;
     }

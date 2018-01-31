@@ -282,7 +282,7 @@ void CDarksendPool::ProcessMessageDarksend(CNode* pfrom, std::string& strCommand
         }
         if(!pSubmittedToMasternode) return;
         if((CNetAddr)pSubmittedToMasternode->addr != (CNetAddr)pfrom->addr){
-            //LogPrintf("dssu - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
+            LogPrintf("dssu - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
             return;
         }
 
@@ -330,7 +330,7 @@ void CDarksendPool::ProcessMessageDarksend(CNode* pfrom, std::string& strCommand
         }
         if(!pSubmittedToMasternode) return;
         if((CNetAddr)pSubmittedToMasternode->addr != (CNetAddr)pfrom->addr){
-            //LogPrintf("dsc - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
+            LogPrintf("dsc - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
             return;
         }
         int sessionIDMessage;
@@ -349,7 +349,7 @@ void CDarksendPool::ProcessMessageDarksend(CNode* pfrom, std::string& strCommand
 
         if(!pSubmittedToMasternode) return;
         if((CNetAddr)pSubmittedToMasternode->addr != (CNetAddr)pfrom->addr){
-            //LogPrintf("dsc - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
+            LogPrintf("dsc - message doesn't match current Masternode - %s != %s\n", pSubmittedToMasternode->addr.ToString().c_str(), pfrom->addr.ToString().c_str());
             return;
         }
 
@@ -1243,6 +1243,7 @@ bool CDarksendPool::StatusUpdate(int newState, int newEntriesCount, int newAccep
             LogPrintf("CDarksendPool::StatusUpdate - entry not accepted by Masternode \n");
             UnlockCoins();
             UpdateState(POOL_STATUS_ACCEPTING_ENTRIES);
+            // Morpheus Task 11
             DoAutomaticDenominating(); //try another Masternode
         }
         if(sessionFoundMasternode) return true;
@@ -1857,13 +1858,13 @@ bool CDarksendPool::IsCompatibleWithEntries(std::vector<CTxOut>& vout)
 
     BOOST_FOREACH(const CDarkSendEntry v, entries) {
         LogPrintf(" IsCompatibleWithEntries %d %d\n", GetDenominations(vout), GetDenominations(v.vout));
-/*
+
         BOOST_FOREACH(CTxOut o1, vout)
             LogPrintf(" vout 1 - %s\n", o1.ToString());
 
         BOOST_FOREACH(CTxOut o2, v.vout)
             LogPrintf(" vout 2 - %s\n", o2.ToString());
-*/
+
         if(GetDenominations(vout) != GetDenominations(v.vout)) return false;
     }
 
@@ -1928,14 +1929,6 @@ bool CDarksendPool::IsCompatibleWithSession(int64_t nDenom, CTransaction txColla
 
 //create a nice string to show the denominations
 void CDarksendPool::GetDenominationsToString(int nDenom, std::string& strDenom){
-    // Function returns as follows:
-    //
-    // bit 0 - 100NMS+1 ( bit on if present )
-    // bit 1 - 10NMS+1
-    // bit 2 - 1NMS+1
-    // bit 3 - .1NMS+1
-    // bit 3 - non-denom
-
 
     strDenom = "";
 
@@ -2003,13 +1996,6 @@ int CDarksendPool::GetDenominations(const std::vector<CTxOut>& vout, bool fSingl
         denom |= bit << c++;
         if(fSingleRandomDenom && bit) break; // use just one random denomination
     }
-
-    // Function returns as follows:
-    //
-    // bit 0 - 100NMS+1 ( bit on if present )
-    // bit 1 - 10NMS+1
-    // bit 2 - 1NMS+1
-    // bit 3 - .1NMS+1
 
     return denom;
 }
@@ -2273,6 +2259,7 @@ void ThreadCheckDarkSendPool()
         //LogPrintf("ThreadCheckDarkSendPool::check timeout\n");
 
         // try to sync from all available nodes, one step at a time
+        // Morpheus task 7
         //masternodeSync.Process();
 
 
