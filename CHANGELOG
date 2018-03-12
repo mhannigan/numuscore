@@ -1,3 +1,10 @@
+v1.0.1.1 Rhizocarpon Release
+--------
+This is mandatory update until block 210 000 for everyone.
+- Reward scheme fix
+- Masternode payment detection rework
+- QT improvements
+
 v1.0.1.0 Rhizocarpon Release
 --------
 This is mandatory update until block 150 001 for everyone.
