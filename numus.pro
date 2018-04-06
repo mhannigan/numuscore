@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = numus-qt
-VERSION = 1.0.1.3
+VERSION = 1.0.1.4
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 QT += network printsupport
 DEFINES += ENABLE_WALLET
